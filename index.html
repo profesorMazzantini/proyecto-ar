@@ -2,31 +2,48 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Modelo 3D en Realidad Aumentada</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Librería model-viewer -->
   <script type="module"
     src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
   </script>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      background: rgb(205, 223, 126);
+      text-align: center;
+    }
+    model-viewer {
+      width: 100%;
+      height: 70vh;
+    }
+    .ar-btn {
+      padding: 16px 24px;
+      font-size: 18px;
+      background: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      margin: 15px;
+    }
+  </style>
 </head>
 
-<body style="margin:0; background:rgb(180, 217, 238);">
+<body>
 
   <model-viewer
-    src="gatoRA5cm.glb"           
-    ar
+    src="gatoRA5cm.glb"
     camera-controls
     auto-rotate
-    orientation="0deg -45deg 0deg"
-    placement="floor"
-    shadow-intensity="1"
-    style="width:100%; height:100vh;">
+    placement="floor">
   </model-viewer>
+
+  <!-- BOTÓN AR FORZADO -->
+  <a class="ar-btn"
+     href="intent://arvr.google.com/scene-viewer/1.0?file=https://profesormazzantini.github.io/proyecto-ar/gatoRA5cm.glb#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;end;">
+     Ver en Realidad Aumentada
+  </a>
 
 </body>
 </html>
-
-
-
