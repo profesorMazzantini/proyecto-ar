@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
+
+  <style>
+    /* ===== GENERAL ===== */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: rgb(250, 250, 250);
+      overflow-y: auto; /* SCROLL VERTICAL */
+    }
+
+    /* ===== LAYOUT ===== */
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ===== BARRA LATERAL (MITAD DE ANCHO) ===== */
+    .sidebar {
+      width: 35px;               /* mitad del ancho anterior */
+      background: #1a73e8;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      z-index: 10;
+    }
+
+    /* ===== CONTENIDO ===== */
+    .content {
+      margin-left: 35px;         /* mismo ancho que la barra */
+      width: calc(100% - 35px);
+    }
+
+    /* ===== MODEL VIEWER ===== */
+    model-viewer {
+      width: 100%;
+      height: 70vh;
+      display: block;
+    }
+
+    /* ===== ESPACIADO ENTRE MODELOS ===== */
+    section {
+      margin-bottom: 40px;
+    }
+
+    /* ===== EXTRA MOBILE ===== */
+    @media (max-width: 480px) {
+      .sidebar {
+        width: 30px;
+      }
+
+      .content {
+        margin-left: 30px;
+        width: calc(100% - 30px);
+      }
+
+      model-viewer {
+        height: 65vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="layout">
+
+    <!-- BARRA LATERAL PASIVA -->
+    <div class="sidebar"></div>
+
+    <!-- CONTENIDO DESPLAZABLE -->
+    <main class="content">
+
+      <section>
+        <model-viewer
+          src="Astronaut.glb"
+          camera-controls
+          auto-rotate
+          placement="floor">
+        </model-viewer>
+      </section>
+
+      <section>
+        <model-viewer
+          src="bolas1.glb"
+          camera-controls
+          auto-rotate
+          placement="floor">
+        </model-viewer>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
