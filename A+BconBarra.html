@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
+
+  <style>
+    /* ===== CONFIG GENERAL ===== */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: rgb(250, 250, 250);
+      overflow-y: auto; /* SCROLL VERTICAL */
+    }
+
+    /* ===== CONTENEDOR GENERAL ===== */
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ===== BARRA LATERAL ===== */
+    .sidebar {
+      width: 70px;
+      background: #1a73e8;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 10px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      z-index: 10;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      margin: 15px 0;
+      font-size: 14px;
+    }
+
+    /* ===== CONTENIDO PRINCIPAL ===== */
+    .content {
+      margin-left: 70px; /* deja espacio para la sidebar */
+      width: calc(100% - 70px);
+      padding-bottom: 40px;
+    }
+
+    /* ===== MODEL VIEWER ===== */
+    model-viewer {
+      width: 100%;
+      height: 70vh;
+    }
+
+    /* ===== BOTÓN AR ===== */
+    .ar-btn {
+      display: inline-block;
+      padding: 14px 20px;
+      font-size: 16px;
+      background: #1a73e8;
+      color: white;
+      border-radius: 8px;
+      margin: 10px auto 30px;
+      text-decoration: none;
+    }
+
+    /* ===== RESPONSIVE EXTRA ===== */
+    @media (max-width: 480px) {
+      .sidebar {
+        width: 60px;
+      }
+
+      .content {
+        margin-left: 60px;
+        width: calc(100% - 60px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="layout">
+
+    <!-- ===== BARRA LATERAL ===== -->
+    <nav class="sidebar">
+      <a href="#astro">🚀</a>
+      <a href="#bolas">⚽</a>
+      <a href="#">⬆️</a>
+    </nav>
+
+    <!-- ===== CONTENIDO ===== -->
+    <main class="content">
+
+      <!-- ===== MODELO 1 ===== -->
+      <section id="astro">
+        <model-viewer
+          src="Astronaut.glb"
+          camera-controls
+          auto-rotate
+          placement="floor">
+        </model-viewer>
+
+        <a class="ar-btn"
+          href="intent://arvr.google.com/scene-viewer/1.0?file=https://profesormazzantini.github.io/proyecto-ar/Astronaut.glb#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;end;">
+          Ver en AR
+        </a>
+      </section>
+
+      <!-- ===== MODELO 2 ===== -->
+      <section id="bolas">
+        <model-viewer
+          src="bolas1.glb"
+          camera-controls
+          auto-rotate
+          placement="floor">
+        </model-viewer>
+
+        <a class="ar-btn"
+          href="intent://arvr.google.com/scene-viewer/1.0?file=https://profesormazzantini.github.io/proyecto-ar/bolas1.glb#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;end;">
+          Ver en AR
+        </a>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
